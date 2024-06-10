@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import home from "../views/Home-index.vue";
-import MealList from "../views/Meals-List.vue";
+import MealLetter from "../views/Meals-Letter.vue";
 import MealByName from "../views/Meals-by-name.vue";
 import MealByIngredient from "../views/Meals-by-ingerdient.vue";
 import DefaultLayout from "../components/DefaultLayout.vue"
@@ -19,7 +19,7 @@ const routes = [
       {
         path: "/letter/:letter?",
         name: "byLetter",
-        component: MealList,
+        component: MealLetter,
       },
       {
         path: "/by-name/:name?",
