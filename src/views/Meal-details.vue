@@ -54,6 +54,7 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 const meal = ref({});
+console.log(route.params.id);
 
 onMounted(() => {
   // Correctly use route.params.id in the request

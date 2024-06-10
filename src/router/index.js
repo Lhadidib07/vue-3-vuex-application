@@ -2,9 +2,11 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import home from "../views/Home-index.vue";
 import MealLetter from "../views/Meals-Letter.vue";
 import MealByName from "../views/Meals-by-name.vue";
-import MealByIngredient from "../views/Meals-by-ingerdient.vue";
 import DefaultLayout from "../components/DefaultLayout.vue"
-import mealDetails from "../views/Meal-details.vue"; 
+import mealDetails from "../views/Meal-details.vue";
+
+import Ingredient from "../views/Ingerdient-meal.vue";
+import MealsByIngredient from  "../views/Meal-by-ingerdient.vue";
 
 const routes = [
   {
@@ -27,15 +29,20 @@ const routes = [
         component: MealByName,
       },
       {
-        path: "/by-ingredient/:ingerident?",
-        name: "byIngredient",
-        component: MealByIngredient,
-      },
-      {
         path:'/meal/:id',
         name:'mealDetails',
         component:mealDetails
-      }
+      },
+      {
+        path: "/ingredients",
+        name: "ingredients",
+        component: Ingredient,
+      },
+      {
+        path: "/mealsByIngredient/:id?",
+        name: "mealsByIngredient",
+        component: MealsByIngredient,
+      },
     ],
   },
 ];

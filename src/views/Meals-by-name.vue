@@ -7,16 +7,11 @@
       placeholder="Search for meals by Name "
       @change="searchMeals" />
   </div>
-  <div
-    v-if="meals.length > 0"
-    class="grid grid-cols-1 md:grid-cols-3 gap-5 px-8">
-    <MealItem v-for="meal in meals" :key="meal.idMeal" :meal=meal />
-  </div>
-  <div v-else class="text-center">no meal found</div>
+  <Meals :meals="meals"/>
 </template>
 
 <script setup>
-import MealItem from "../components/MealItem.vue";
+import Meals from "../components/Meals-onDemande.vue";
 
 import { computed } from "vue";
 import { onMounted, ref } from "vue";
