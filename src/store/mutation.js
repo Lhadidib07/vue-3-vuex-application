@@ -1,5 +1,3 @@
-export default {
-  setSearchedMeals(state, meals) {
+export function setSearchedMeals(state, meals) {
     state.searchedMeals = meals;
-  }
 }
