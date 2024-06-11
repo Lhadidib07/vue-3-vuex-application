@@ -1,29 +1,31 @@
 <template>
-    <div class="flex flex-col p-8">
-        <input type="text" 
-         class="rounded border-2 border-gray-200 w-full" 
-         placeholder="Search for Meals"
-        >
-        
-        <pre>
-            {{ ingredients }}
-        </pre>
-    </div>
+  <div class="flex flex-col p-8">
+    <input
+      type="text"
+      class="rounded border-2 border-gray-200 w-full my-5"
+      placeholder="Search for Meals" />
+    <Meals :meals="meals" />
+  </div>
 </template>
 
 <script setup>
-import { onMounted , ref } from 'vue';
-import axiosClient from '../axiosClient'
+import { onMounted, ref } from "vue";
+import axiosClient from "../axiosClient";
+import Meals from "../components/Meals-onDemande.vue";
 
 // import { computed } from 'vue';
 // import store from '@/store'; // Adjust the path as necessary to point to your store file
-// const meals = computed(() => store.state.meals); 
+// const meals = computed(() => store.state.meals);
 
-onMounted(async () => { 
-   const reposnse = await axiosClient.get('list.php?i=list');
-   console.log(reposnse.data);
-   ingredients.value = reposnse.data ; 
-})
+const meals = ref([]);
 
-const ingredients = ref([])
-</script> 
+onMounted(async () => {
+  for (let i = 0; i < 10; i++) {
+    axiosClient
+      .get(`random.php`)
+      .then(({ data }) => meals.value.push(data.meals[0]));
+  }
+});
+
+//const ingredients = ref([]);
+</script>
